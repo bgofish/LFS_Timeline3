@@ -3,13 +3,13 @@ from .panels.training_render import setup_data_binding, KeyframeSpreadsheetPanel
 from .operators.start import StartEditorOperator
 
 def register(context):
-    """Entry point for most versions."""
     setup_data_binding(context)
-    context.registry.register_class(KeyframeSpreadsheetPanel)
-    context.registry.register_class(StartEditorOperator)
-    print("Spreadsheet Plugin Registered via register()")
+    
+    # Explicitly register as a panel to create the sidebar tab
+    context.registry.register_panel(KeyframeSpreadsheetPanel)
+    context.registry.register_operator(StartEditorOperator)
+    
+    print("Spreadsheet Panel Registered")
 
 def initialize(context):
-    """Entry point for v0.5+ versions."""
     register(context)
-    print("Spreadsheet Plugin Initialized via initialize()")
