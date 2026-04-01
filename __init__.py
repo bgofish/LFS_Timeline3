@@ -4,14 +4,14 @@ from .operators.start import StartEditorOperator
 def register(context):
     setup_spreadsheet_data(context)
     
-    # Force registration as a panel specifically
+    # Check if the registry has the specific 'register_panel' method
     if hasattr(context.registry, 'register_panel'):
         context.registry.register_panel(KeyframeSpreadsheetPanel)
     else:
         context.registry.register_class(KeyframeSpreadsheetPanel)
         
     context.registry.register_class(StartEditorOperator)
-    print("Forcing Spreadsheet Panel Registration...")
+    print("Spreadsheet Panel Registered")
 
 def initialize(context):
     register(context)
