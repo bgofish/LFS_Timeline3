@@ -1,12 +1,8 @@
-try:
-    import studio
-except:
-    import lfs_studio as studio
-
-class StartEditorOperator(studio.Operator):
-    bl_idname = "lichtfeld.start_editor"
-    bl_label = "Start Spreadsheet Editor"
+class StartEditorOperator:
+    id = "lichtfeld.start_editor"
+    label = "Start Spreadsheet Editor"
 
     def execute(self, context):
-        print("Editor Started")
-        return {'FINISHED'}
+        # 'context' allows you to access the scene data
+        print("Spreadsheet Operator Executed")
+        return True
